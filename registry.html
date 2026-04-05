@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registered Businesses — BRLO 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/registry.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+</head>
+<body>
+
+  <!-- ═══════ NAVBAR ═══════ -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="logo/brlo-logo.png" alt="BRLO" class="nav-logo" onerror="this.style.display='none'">
+      <div class="nav-brand-text">
+        <span>Business Registration &amp; Licensing Office</span>
+        <span>Business Registry 2026</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html"    data-page="index.html">Home</a></li>
+      <li><a href="registry.html" data-page="registry.html">Registered Businesses</a></li>
+      <li><a href="about.html"    data-page="about.html">About</a></li>
+    </ul>
+
+    <img src="logo/entrep-logo.png" alt="Entrep" class="nav-right-logo" onerror="this.style.display='none'">
+  </nav>
+
+
+  <!-- ═══════ PAGE HEADER ═══════ -->
+  <div class="page-header">
+    <div class="page-header-geo"></div>
+    <div class="page-header-inner">
+      <div class="page-header-eyebrow">BRLO · Business Registry 2026</div>
+      <h1>Registered <span>Businesses</span></h1>
+      <p class="page-header-sub">
+        Official list of all approved and registered student business enterprises.
+        All permits are issued by the BRLO and are valid until the end of May2026.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ═══════ STICKY TOOLBAR ═══════ -->
+  <div class="registry-toolbar">
+    <div class="toolbar-inner">
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search by business name, owner, or nature of business..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Section filters -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="registry.setFilter('All', this)">All</button>
+        <button class="filter-btn" onclick="registry.setFilter('Archimedes', this)">Archimedes</button>
+        <button class="filter-btn" onclick="registry.setFilter('Aristotle', this)">Aristotle</button>
+        <button class="filter-btn" onclick="registry.setFilter('Galileo', this)">Galileo</button>
+        <button class="filter-btn" onclick="registry.setFilter('Kepler', this)">Kepler</button>
+      </div>
+
+      <!-- Result count -->
+      <div class="result-count" id="result-count"></div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════ BUSINESS GRID ═══════ -->
+  <div class="registry-main">
+    <div class="business-grid" id="business-grid"></div>
+  </div>
+
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>BRLO — BUSINESS REGISTRATION &amp; LICENSING OFFICE</strong>
+        <span>Central Mindanao University Laboratory High School · Grade 12 · S.Y. 2025–2026</span>
+      </div>
+      <div class="footer-right">
+        <p>Entrepreneurship 1 · For Academic Use Only</p>
+        <p style="margin-top: 4px;">© 2026 BRLO · All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════ BUSINESS DETAIL MODAL ═══════ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button class="modal-close" onclick="registry.closeModal()">✕</button>
+        <div class="modal-logo-name">
+          <div class="modal-logo" id="modal-logo-wrap">
+            <div class="modal-logo-placeholder" id="modal-logo-placeholder"></div>
+          </div>
+          <div>
+            <div class="modal-biz-name"   id="modal-biz-name"></div>
+            <div class="modal-catchphrase" id="modal-catchphrase"></div>
+          </div>
+        </div>
+        <div class="modal-badges" id="modal-badges"></div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+
+        <div class="modal-section-title">Business Registration Details</div>
+        <div class="modal-field-grid">
+          <div class="modal-field">
+            <div class="field-label">Permit Number</div>
+            <div class="field-value mono" id="m-permit"></div>
+          </div>
+          <div class="modal-field">
+            <div class="field-label">Date Registered</div>
+            <div class="field-value" id="m-date"></div>
+          </div>
+          <div class="modal-field">
+            <div class="field-label">Nature of Business</div>
+            <div class="field-value" id="m-nature"></div>
+          </div>
+          <div class="modal-field">
+            <div class="field-label">Section</div>
+            <div class="field-value" id="m-section"></div>
+          </div>
+          <div class="modal-field full">
+            <div class="field-label">Establishment Address</div>
+            <div class="field-value" id="m-address"></div>
+          </div>
+        </div>
+
+        <div class="modal-section-title">Operator Information</div>
+        <div class="modal-field-grid">
+          <div class="modal-field">
+            <div class="field-label">Business Owner / Proprietor</div>
+            <div class="field-value" id="m-owner"></div>
+          </div>
+          <div class="modal-field">
+            <div class="field-label">Business Email</div>
+            <div class="field-value" id="m-email"></div>
+          </div>
+          <div class="modal-field full">
+            <div class="field-label">Group Members</div>
+            <div class="members-list" id="m-members"></div>
+          </div>
+        </div>
+
+        <div class="modal-section-title">Operations</div>
+        <div class="modal-field-grid">
+          <div class="modal-field">
+            <div class="field-label">Payment Methods</div>
+            <div class="field-value" id="m-payment"></div>
+          </div>
+          <div class="modal-field full">
+            <div class="field-label">Products / Services</div>
+            <div class="field-value" id="m-products"></div>
+          </div>
+        </div>
+
+        <div class="modal-disclaimer">
+          This business is officially registered under the simulated BRLO registry
+          for academic purposes only. Valid until end of S.Y. 2025–2026.
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts: data first, then class, then init -->
+  <script src="js/data.js"></script>
+  <script src="js/registry.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Instantiate the registry — wires everything up
+    const registry = new BusinessRegistry({
+      gridId:   'business-grid',
+      searchId: 'search-input',
+      countId:  'result-count',
+      modalId:  'modal-overlay',
+      data:     BUSINESSES,
+    });
+  </script>
+
+</body>
+</html>
