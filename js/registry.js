@@ -143,7 +143,7 @@ class BusinessRegistry {
 
           <div class="card-meta">
             <div class="meta-row">
-              <strong>Owner</strong>
+              <strong>Proprietor</strong>
               <span>${this._esc(b.owner)}</span>
             </div>
             <div class="meta-row">
