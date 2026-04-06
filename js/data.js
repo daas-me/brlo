@@ -32,7 +32,7 @@ const BUSINESSES = [
     address:        "Central Mindanao University Laboratory High School, Musuan, Maramag, Bukidnon",
     owner:          "Rhez Aleyah C. Capio",
     members: [
-      { name: "Capio, Rhez Aleyah C.", isLeader: true  },
+      { name: "Capio, Rhez Aleyah C.", isLeader: false  },
       { name: "Asok, Princess Bianca",   isLeader: false },
       { name: "Alba, Daniela Aurea G.",    isLeader: false },
       { name: "Castillo, Caesar Laurence F.",        isLeader: false },
@@ -55,7 +55,7 @@ const BUSINESSES = [
     address:        "Near 11-Einstein Classroom, Central Mindanao University Laboratory High School",
     owner:          "Jeffrey III M. Galan",
     members: [
-      { name: "Galan, Jeffrey III M.", isLeader: true  },
+      { name: "Galan, Jeffrey III M.", isLeader: false  },
       { name: "Dinopol, Nolyn Mary A.",   isLeader: false },
       { name: "Guerra, Andre Nathaniel Y.",    isLeader: false },
       { name: "Ilasin, Astrid G.",        isLeader: false },
