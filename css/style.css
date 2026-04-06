@@ -99,8 +99,9 @@ nav {
   transition: color 0.2s;
   padding: 6px 0;
 }
-.nav-links a:hover { color: #fff; }
-.nav-links a.active {
+.page-home     .nav-link-home,
+.page-registry .nav-link-registry,
+.page-about    .nav-link-about {
   color: #fff;
   border-bottom: 3px solid var(--violet);
   padding-bottom: 4px;

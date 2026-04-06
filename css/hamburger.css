@@ -94,7 +94,9 @@
   .nav-links a:last-child { border-bottom: none; }
 
   /* Active state on mobile — left bar instead of underline */
-  .nav-links a.active {
+  .page-home     .nav-link-home,
+  .page-registry .nav-link-registry,
+  .page-about    .nav-link-about {
     border-bottom: 1px solid rgba(255,255,255,0.06);
     border-left: 4px solid var(--violet);
     padding-left: calc(1.5rem - 4px);
