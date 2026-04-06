@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════════════
+   HAMBURGER MENU — append these rules to style.css
+   ═══════════════════════════════════════════════════ */
+
+/* Hide the button on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  /* sits between brand and links; order pushes it to the right on mobile */
+  order: 3;
+}
+.nav-hamburger:hover { background: rgba(255,255,255,0.18); }
+
+/* The three bars */
+.nav-hamburger .bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+
+/* Animate into an X when open */
+.nav-hamburger.is-open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger.is-open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-hamburger.is-open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE NAV BREAKPOINT ────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Show the hamburger button */
+  .nav-hamburger { display: flex; }
+
+  /* Stack nav so brand is left, hamburger is right */
+  nav {
+    flex-wrap: wrap;
+    padding: 0 1.25rem;
+    height: 64px;
+  }
+
+  /* Link list: hidden by default, slides down when open */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+
+    /* Slide-down panel underneath the navbar */
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: rgba(26, 58, 107, 0.99);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 0 1rem;
+    z-index: 999;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  }
+
+  /* Open state */
+  .nav-links.mobile-open { display: flex; }
+
+  /* Each nav item */
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 14px 1.5rem;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    letter-spacing: 0.5px;
+  }
+  .nav-links a:last-child { border-bottom: none; }
+
+  /* Active state on mobile — left bar instead of underline */
+  .nav-links a.active {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-left: 4px solid var(--violet);
+    padding-left: calc(1.5rem - 4px);
+    color: #fff;
+  }
+
+  /* Hide the right logo on mobile */
+  .nav-right-logo { display: none; }
+}
