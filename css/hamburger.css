@@ -149,4 +149,60 @@
     border-bottom: 1px solid rgba(255,255,255,0.07);
   }
 
+  /* ── FOOTER — mobile fix ────────────────────────── */
+footer {
+  padding: 2rem 1.25rem;
+}
+
+.footer-inner {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.footer-brand {
+  align-items: center;
+}
+
+.footer-brand strong {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.footer-brand span {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.footer-right {
+  text-align: center;
+  font-size: 11px;
+}
+
+.footer-right p + p {
+  margin-top: 2px;
+}
+
+}
+
+@media (max-width: 390px) {
+    /* Show short title, hide long title on mobile */
+.nav-title-full  { display: none; }
+.nav-title-short {
+    display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+.nav-subtitle {
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
 }
