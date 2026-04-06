@@ -23,26 +23,26 @@
 
 const BUSINESSES = [
 
-  {
-    permitNo:       "BRLO-202604-00000",
-    businessName:   "FOODA!",
-    catchphrase:    "Your favorite street food, elevated.",
-    nature:         "Food Cart / Street Food Stall",
-    section:        "Archimedes",
-    address:        "CMU Lab Grounds, Booth 1",
-    owner:          "StreetFoods, Co.",
-    members: [
-      { name: "Juan Dela Cruz", isLeader: true  },
-      { name: "Maria Santos",   isLeader: false },
-      { name: "Pedro Reyes",    isLeader: false },
-      { name: "Ana Lim",        isLeader: false },
-    ],
-    email:          "fooda.brlo@gmail.com",
-    payment:        "Cash, GCash",
-    products:       "Isaw, Fishball, Kwek-kwek, Kikiam, Betamax — starting at PHP 10",
-    logo:           "",
-    dateRegistered: "April 11, 2026",
-  },
+  // {
+  //   permitNo:       "BRLO-202604-00000",
+  //   businessName:   "FOODA!",
+  //   catchphrase:    "Your favorite street food, elevated.",
+  //   nature:         "Food Cart / Street Food Stall",
+  //   section:        "Archimedes",
+  //   address:        "CMU Lab Grounds, Booth 1",
+  //   owner:          "StreetFoods, Co.",
+  //   members: [
+  //     { name: "Juan Dela Cruz", isLeader: true  },
+  //     { name: "Maria Santos",   isLeader: false },
+  //     { name: "Pedro Reyes",    isLeader: false },
+  //     { name: "Ana Lim",        isLeader: false },
+  //   ],
+  //   email:          "fooda.brlo@gmail.com",
+  //   payment:        "Cash, GCash",
+  //   products:       "Isaw, Fishball, Kwek-kwek, Kikiam, Betamax — starting at PHP 10",
+  //   logo:           "",
+  //   dateRegistered: "April 11, 2026",
+  // },
 
   // ── ADD NEW BUSINESSES BELOW ──────────────────────
   // {
