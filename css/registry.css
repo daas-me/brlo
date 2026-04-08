@@ -151,7 +151,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
-  flex: 1;       /* grows to fill available space, keeps footer anchored at bottom */
+  flex: 1;
   width: 100%;
 }
 
@@ -307,6 +307,40 @@
   font-weight: 600;
   min-width: 72px;
   flex-shrink: 0;
+}
+
+/* ── SOCIAL LINKS — CARD ──────────────────────────── */
+.card-socials {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.card-social-link {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.card-social-link .social-label {
+  display: none; /* icon-only on cards */
+}
+.card-social-link:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .card-footer {
@@ -479,6 +513,39 @@
   background: var(--light-blue); color: var(--navy);
 }
 .member-chip.leader { background: var(--navy); color: white; }
+
+/* ── SOCIAL LINKS — MODAL ─────────────────────────── */
+.modal-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.modal-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'Source Sans 3', sans-serif;
+}
+.modal-social-link .social-label {
+  display: inline; /* show label text in modal */
+}
+.modal-social-link:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  transform: translateY(-1px);
+}
 
 .modal-disclaimer {
   margin-top: 1rem;

@@ -156,6 +156,8 @@ class BusinessRegistry {
             </div>
           </div>
 
+          ${this._socialsRow(b)}
+
           <div class="card-footer">
             <span class="permit-no">${this._esc(b.permitNo)}</span>
             <span class="view-btn">View Details →</span>
@@ -212,9 +214,50 @@ class BusinessRegistry {
         </span>`
       ).join('');
     }
+
+    // Social Media
+    const socialsEl = document.getElementById('m-socials');
+    if (socialsEl) {
+      const html = this._socialsHTML(b, 'modal-social-link');
+      socialsEl.innerHTML = html || '<span style="font-size:13px;color:var(--muted);">No online profiles listed yet.</span>';
+    }
   }
 
   /* ── UTILITIES ──────────────────────────────────── */
+
+  _socialsRow(b) {
+    if (!b.socials) return '';
+    const html = this._socialsHTML(b, 'card-social-link');
+    if (!html) return '';
+    return `
+      <div class="card-socials">
+        ${html}
+      </div>`;
+  }
+
+  _socialsHTML(b, linkClass) {
+    if (!b.socials) return '';
+    const map = [
+      { key: 'facebook',  icon: 'fa-brands fa-facebook',   label: 'Facebook'  },
+      { key: 'instagram', icon: 'fa-brands fa-instagram',   label: 'Instagram' },
+      { key: 'tiktok',    icon: 'fa-brands fa-tiktok',      label: 'TikTok'    },
+      { key: 'twitter',   icon: 'fa-brands fa-x-twitter',   label: 'X/Twitter' },
+      { key: 'website',   icon: 'fa-solid fa-globe',        label: 'Website'   },
+    ];
+    return map
+      .filter(({ key }) => b.socials[key] && b.socials[key].trim() !== '')
+      .map(({ key, icon, label }) =>
+        `<a href="${this._esc(b.socials[key])}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="${linkClass}"
+            title="${label}"
+            onclick="event.stopPropagation()">
+           <i class="${icon}"></i>
+           <span class="social-label">${label}</span>
+         </a>`
+      ).join('');
+  }
 
   _initials(name) {
     return name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
