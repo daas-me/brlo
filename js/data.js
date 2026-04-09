@@ -47,7 +47,7 @@ const BUSINESSES = [
     dateRegistered: "April 7, 2026",
     socials: {
       facebook:  "",
-      instagram: "",
+      instagram: "https://www.instagram.com/happytummyyyy_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       tiktok:    "",
       twitter:   "",
       website:   "",
