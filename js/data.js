@@ -550,7 +550,7 @@ const BUSINESSES = [
   payment:        "Cash, GCash",
   products:       "Fruit Soda — 3 flavors: Blueberry, Blue Lemonade, Green Apple",
   logo:           "logo/munchies.webp",
-  dateRegistered: "April 8, 2026",
+  dateRegistered: "April 9, 2026",
   socials: {
     facebook:  "",
     instagram: "",
@@ -583,7 +583,7 @@ const BUSINESSES = [
   payment:        "Cash, GCash",
   products:       "Snacks: Waffles, Churros, Fried Oreos | Drinks: Fruit Soda, Lemonade | Rice Meals: Shrimp Tempura, Onigiri, Cordon Bleu Roll",
   logo:           "logo/mike_n_match.jpeg",
-  dateRegistered: "April 8, 2026",
+  dateRegistered: "April 9, 2026",
   socials: {
     facebook:  "https://www.facebook.com/share/1CjuCxZz5f/?mibextid=wwXIfr",
     instagram: "https://www.instagram.com/mike_and_match?igsh=aDlldTE5MDRyNm53",
@@ -612,7 +612,7 @@ const BUSINESSES = [
   payment:        "Cash, GCash",
   products:       "Rice Bowls: Honey Garlic Chicken, Chao Fan, Corned Beef Pepper Lunch | Fruit Sodas",
   logo:           "logo/raize_mael.jpeg",
-  dateRegistered: "April 8, 2026",
+  dateRegistered: "April 9, 2026",
   socials: {
     facebook:  "",
     instagram: "",
@@ -644,7 +644,7 @@ const BUSINESSES = [
   payment:        "Cash, GCash",
   products:       "Spicy Noodle Soup, Lasagna Soup, Banana Pudding, Arancini Balls, Burntbust Cheesecake, Crepe Cakes, Egg Pops, Banana Cake, Cucumber Lemonade",
   logo:           "logo/pica_picka.jpeg",
-  dateRegistered: "April 8, 2026",
+  dateRegistered: "April 9, 2026",
   socials: {
     facebook:  "",
     instagram: "",
