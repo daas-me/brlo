@@ -6,24 +6,22 @@
    ═══════════════════════════════════════════════════ */
 
 class BusinessRegistry {
-  /**
-   * @param {Object} options
-   * @param {string} options.gridId       — ID of the card grid container
-   * @param {string} options.searchId     — ID of the search input
-   * @param {string} options.countId      — ID of the result count element
-   * @param {string} options.modalId      — ID of the modal overlay
-   * @param {Array}  options.data         — The businesses array (from data.js)
-   */
   constructor({ gridId, searchId, countId, modalId, data }) {
     this._data          = data;
     this._currentFilter = 'All';
     this._currentSearch = '';
+    this._currentSort   = 'default';
 
-    // DOM references
     this._grid   = document.getElementById(gridId);
     this._search = document.getElementById(searchId);
     this._count  = document.getElementById(countId);
     this._modal  = document.getElementById(modalId);
+    this._sortDropdown    = document.querySelector('.sort-dropdown');
+    this._sortToggle      = document.querySelector('.sort-toggle');
+    this._sortMenu        = document.querySelector('.sort-menu');
+    this._sectionDropdown = document.querySelector('.section-dropdown');
+    this._sectionToggle   = document.querySelector('.section-toggle');
+    this._sectionMenu     = document.querySelector('.section-menu');
 
     this._bindEvents();
     this.render();
@@ -31,15 +29,56 @@ class BusinessRegistry {
 
   /* ── PUBLIC ─────────────────────────────────────── */
 
-  /** Set the section filter and re-render. */
   setFilter(section, btnEl) {
     this._currentFilter = section;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btnEl.classList.add('active');
+    document.querySelectorAll('.section-option').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    if (this._sectionToggle) {
+      const label = section === 'All' ? 'All' : section;
+      this._sectionToggle.innerHTML = `<i class="fa-solid fa-filter"></i> <span class="toggle-label">Section: ${label}</span> <i class="fa-solid fa-chevron-down"></i>`;
+    }
+    this._closeSectionMenu();
     this.render();
   }
 
-  /** Open the detail modal for a business by its index. */
+  setSort(sortMode, btnEl) {
+    this._currentSort = sortMode;
+    document.querySelectorAll('.sort-option').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+    const labels = {
+      default: 'Default',
+      newest: 'Newest',
+      alpha: 'A → Z',
+      reverseAlpha: 'Z → A',
+    };
+    if (this._sortToggle) {
+      this._sortToggle.innerHTML = `<i class="fa-solid fa-sort"></i> <span class="toggle-label">Sort: ${labels[sortMode] || 'Default'}</span> <i class="fa-solid fa-chevron-down"></i>`;
+    }
+    this._closeSortMenu();
+    this.render();
+  }
+
+  toggleSortMenu() {
+    if (!this._sortDropdown) return;
+    this._sortDropdown.classList.toggle('open');
+  }
+
+  toggleSectionMenu() {
+    if (!this._sectionDropdown) return;
+    this._sectionDropdown.classList.toggle('open');
+  }
+
+  _closeSortMenu() {
+    if (!this._sortDropdown) return;
+    this._sortDropdown.classList.remove('open');
+  }
+
+  _closeSectionMenu() {
+    if (!this._sectionDropdown) return;
+    this._sectionDropdown.classList.remove('open');
+  }
+
   openModal(index) {
     const b = this._data[index];
     this._populateModal(b);
@@ -47,13 +86,11 @@ class BusinessRegistry {
     document.body.style.overflow = 'hidden';
   }
 
-  /** Close the detail modal. */
   closeModal() {
     this._modal.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  /** Apply current search + filter and re-render cards. */
   render() {
     const filtered = this._filtered();
     this._updateCount(filtered.length);
@@ -63,33 +100,38 @@ class BusinessRegistry {
   /* ── PRIVATE ────────────────────────────────────── */
 
   _bindEvents() {
-    // Search
     if (this._search) {
       this._search.addEventListener('input', () => {
         this._currentSearch = this._search.value.toLowerCase().trim();
         this.render();
       });
     }
-
-    // Modal — close when clicking the backdrop
     if (this._modal) {
       this._modal.addEventListener('click', e => {
         if (e.target === this._modal) this.closeModal();
       });
     }
-
-    // Modal — close on Escape
+    document.addEventListener('click', e => {
+      if (this._sortDropdown && !this._sortDropdown.contains(e.target)) {
+        this._closeSortMenu();
+      }
+      if (this._sectionDropdown && !this._sectionDropdown.contains(e.target)) {
+        this._closeSectionMenu();
+      }
+    });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') this.closeModal();
+      if (e.key === 'Escape') {
+        this.closeModal();
+        this._closeSortMenu();
+        this._closeSectionMenu();
+      }
     });
   }
 
   _filtered() {
-    return this._data.filter(b => {
+    const filtered = this._data.filter(b => {
       const matchSection =
-        this._currentFilter === 'All' ||
-        b.section === this._currentFilter;
-
+        this._currentFilter === 'All' || b.section === this._currentFilter;
       const q = this._currentSearch;
       const matchSearch =
         !q ||
@@ -97,15 +139,32 @@ class BusinessRegistry {
         b.owner.toLowerCase().includes(q) ||
         b.nature.toLowerCase().includes(q) ||
         b.members.some(m => m.name.toLowerCase().includes(q));
-
       return matchSection && matchSearch;
     });
+    return this._sortList(filtered);
   }
 
   _updateCount(count) {
     if (this._count) {
       this._count.textContent = `${count} business${count !== 1 ? 'es' : ''} found`;
     }
+  }
+
+  _sortList(list) {
+    if (this._currentSort === 'newest') {
+      return list.slice().sort((a, b) => {
+        const aDate = new Date(a.dateRegistered).getTime() || 0;
+        const bDate = new Date(b.dateRegistered).getTime() || 0;
+        return bDate - aDate;
+      });
+    }
+    if (this._currentSort === 'alpha') {
+      return list.slice().sort((a, b) => a.businessName.localeCompare(b.businessName));
+    }
+    if (this._currentSort === 'reverseAlpha') {
+      return list.slice().sort((a, b) => b.businessName.localeCompare(a.businessName));
+    }
+    return list;
   }
 
   _renderCards(list) {
@@ -120,17 +179,32 @@ class BusinessRegistry {
 
     this._grid.innerHTML = list.map(b => {
       const idx = this._data.indexOf(b);
+      
+      // Grab the first valid photo from the coverPhotos array, or fallback
+      const photos = this._getPhotos(b);
+      const firstCover = photos.length > 0 ? photos[0] : null;
+
       return `
         <div class="biz-card" onclick="registry.openModal(${idx})" role="button" tabindex="0"
              onkeypress="if(event.key==='Enter')registry.openModal(${idx})">
-          <div class="card-top">
+
+          <div class="card-cover ${firstCover ? '' : 'card-cover--empty'}">
+            ${firstCover
+              ? `<img src="${firstCover}" alt="${this._esc(b.businessName)} cover"
+                   onerror="this.parentElement.classList.add('card-cover--empty');this.remove()">`
+              : `<div class="card-cover-placeholder-text">
+                   <span style="padding: 0 16px; text-align: center;">${this._esc(b.businessName)}</span>
+                 </div>`}
+            <div class="card-cover-badge">
+              <span class="badge-section ${b.section}">${b.section}</span>
+            </div>
+          </div>
+
+          <div class="card-identity">
             <div class="biz-logo-wrap">
               ${this._logoTag(b, 'biz-logo-placeholder')}
             </div>
-            <div class="card-badges">
-              <span class="badge-section ${b.section}">${b.section}</span>
-              <span class="badge-active">Active</span>
-            </div>
+            <span class="badge-active">Active</span>
           </div>
 
           <div class="biz-name">${this._esc(b.businessName)}</div>
@@ -167,8 +241,7 @@ class BusinessRegistry {
   }
 
   _populateModal(b) {
-    this._set('modal-biz-name',   b.businessName);
-    this._set('modal-catchphrase', b.catchphrase ? `"${b.catchphrase}"` : '');
+    this._set('modal-biz-name',    b.businessName);
     this._set('m-permit',   b.permitNo);
     this._set('m-date',     b.dateRegistered);
     this._set('m-nature',   b.nature);
@@ -178,7 +251,25 @@ class BusinessRegistry {
     this._set('m-payment',  b.payment || '—');
     this._set('m-products', b.products || '—');
 
-    // Email with mailto link
+    // Hide the catchphrase entirely if it's empty to prevent awkward whitespace
+    const catchphraseEl = document.getElementById('modal-catchphrase');
+    if (catchphraseEl) {
+      if (b.catchphrase && b.catchphrase.trim() !== '') {
+        catchphraseEl.textContent = `"${b.catchphrase}"`;
+        catchphraseEl.style.display = 'block';
+      } else {
+        catchphraseEl.textContent = '';
+        catchphraseEl.style.display = 'none';
+      }
+    }
+
+    // Cover photo carousel
+    const photos = this._getPhotos(b);
+    this._carouselIndex = 0;
+    this._carouselPhotos = photos;
+    this._buildCarousel(photos, b);
+
+    // Email
     const emailEl = document.getElementById('m-email');
     if (emailEl) {
       emailEl.innerHTML = b.email
@@ -189,20 +280,21 @@ class BusinessRegistry {
     // Logo
     const logoWrap = document.getElementById('modal-logo-wrap');
     if (logoWrap) {
-      logoWrap.innerHTML = b.logo
-        ? `<img src="${b.logo}" alt="${this._esc(b.businessName)}"
+      const logoSrc = b.logo || '';
+      logoWrap.innerHTML = logoSrc
+        ? `<img src="${logoSrc}" alt="${this._esc(b.businessName)}"
+             style="cursor:zoom-in"
+             onclick="event.stopPropagation();registry.openLightbox(-1)"
              onerror="this.parentElement.innerHTML='<div class=modal-logo-placeholder>${this._initials(b.businessName)}</div>'">`
         : `<div class="modal-logo-placeholder">${this._initials(b.businessName)}</div>`;
+      this._currentLogoSrc = logoSrc;
     }
 
     // Badges
     const badges = document.getElementById('modal-badges');
     if (badges) {
-      badges.innerHTML = [
-        b.section,
-        b.nature,
-        'Active 2026',
-      ].map(t => `<span class="modal-badge">${this._esc(t)}</span>`).join('');
+      badges.innerHTML = [b.section, b.nature, 'Active 2026']
+        .map(t => `<span class="modal-badge">${this._esc(t)}</span>`).join('');
     }
 
     // Members
@@ -215,12 +307,165 @@ class BusinessRegistry {
       ).join('');
     }
 
-    // Social Media
+    // Socials
     const socialsEl = document.getElementById('m-socials');
     if (socialsEl) {
       const html = this._socialsHTML(b, 'modal-social-link');
       socialsEl.innerHTML = html || '<span style="font-size:13px;color:var(--muted);">No online profiles listed yet.</span>';
     }
+  }
+
+  /* ── CAROUSEL ───────────────────────────────────── */
+
+  _getPhotos(b) {
+    if (Array.isArray(b.coverPhotos) && b.coverPhotos.length) {
+      return b.coverPhotos.filter(p => p && p.trim() !== '');
+    }
+    if (b.coverPhoto && b.coverPhoto.trim() !== '') {
+      return [b.coverPhoto];
+    }
+    return [];
+  }
+
+  _buildCarousel(photos, b) {
+    const track = document.getElementById('carousel-track');
+    const dots  = document.getElementById('carousel-dots');
+    const prev  = document.getElementById('carousel-prev');
+    const next  = document.getElementById('carousel-next');
+    if (!track) return;
+
+    if (photos.length === 0) {
+      track.innerHTML = `
+        <div class="carousel-slide carousel-slide--empty">
+          <div class="card-cover-placeholder-text">
+             <span style="padding: 0 16px; text-align: center;">${this._esc(b.businessName)}</span>
+          </div>
+        </div>`;
+      dots.innerHTML  = '';
+      prev.classList.add('hidden');
+      next.classList.add('hidden');
+      return;
+    }
+
+    track.innerHTML = photos.map((src, i) =>
+      `<div class="carousel-slide" style="background-image:url('${src}')"
+            onclick="event.stopPropagation();registry.openLightbox(${i})"
+            title="Click to enlarge"></div>`
+    ).join('');
+
+    dots.innerHTML = photos.map((_, i) =>
+      `<button class="carousel-dot ${i === 0 ? 'active' : ''}"
+               onclick="event.stopPropagation();registry.carouselGo(${i})"></button>`
+    ).join('');
+
+    // Hide arrows if only one photo total
+    prev.classList.toggle('hidden', photos.length <= 1);
+    next.classList.toggle('hidden', photos.length <= 1);
+
+    this._updateCarousel();
+  }
+
+  _updateCarousel() {
+    const track = document.getElementById('carousel-track');
+    const dots  = document.querySelectorAll('.carousel-dot');
+    if (!track) return;
+
+    const i = this._carouselIndex;
+    track.style.transform = `translateX(-${i * 100}%)`;
+
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  }
+
+  carouselPrev() {
+    if (this._carouselPhotos.length <= 1) return;
+    
+    if (this._carouselIndex > 0) {
+      this._carouselIndex--;
+    } else {
+      this._carouselIndex = this._carouselPhotos.length - 1; // Loop to end
+    }
+    this._updateCarousel();
+  }
+
+  carouselNext() {
+    if (this._carouselPhotos.length <= 1) return;
+    
+    if (this._carouselIndex < this._carouselPhotos.length - 1) {
+      this._carouselIndex++;
+    } else {
+      this._carouselIndex = 0; // Loop to beginning
+    }
+    this._updateCarousel();
+  }
+
+  carouselGo(index) {
+    this._carouselIndex = index;
+    this._updateCarousel();
+  }
+
+  /* ── LIGHTBOX ───────────────────────────────────── */
+
+  openLightbox(index) {
+    this._lightboxIndex  = index;
+    this._lightboxImages = index === -1
+      ? (this._currentLogoSrc ? [this._currentLogoSrc] : [])
+      : this._carouselPhotos;
+
+    if (!this._lightboxImages.length) return;
+
+    const overlay = document.getElementById('lightbox-overlay');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    this._updateLightbox();
+
+    this._lightboxEsc = e => { if (e.key === 'Escape') this.closeLightbox(); };
+    document.addEventListener('keydown', this._lightboxEsc);
+  }
+
+  closeLightbox() {
+    const overlay = document.getElementById('lightbox-overlay');
+    overlay.classList.remove('open');
+    document.body.style.overflow = 'hidden'; 
+    if (this._lightboxEsc) {
+      document.removeEventListener('keydown', this._lightboxEsc);
+      this._lightboxEsc = null;
+    }
+  }
+
+  lightboxPrev() {
+    if (this._lightboxImages.length <= 1) return;
+    if (this._lightboxIndex > 0) {
+      this._lightboxIndex--;
+    } else {
+      this._lightboxIndex = this._lightboxImages.length - 1;
+    }
+    this._updateLightbox();
+  }
+
+  lightboxNext() {
+    if (this._lightboxImages.length <= 1) return;
+    if (this._lightboxIndex < this._lightboxImages.length - 1) {
+      this._lightboxIndex++;
+    } else {
+      this._lightboxIndex = 0;
+    }
+    this._updateLightbox();
+  }
+
+  _updateLightbox() {
+    const img     = document.getElementById('lightbox-img');
+    const counter = document.getElementById('lightbox-counter');
+    const prev    = document.getElementById('lightbox-prev');
+    const next    = document.getElementById('lightbox-next');
+    const i       = this._lightboxIndex < 0 ? 0 : this._lightboxIndex;
+
+    img.src = this._lightboxImages[i];
+
+    const total = this._lightboxImages.length;
+    counter.textContent = total > 1 ? `${i + 1} / ${total}` : '';
+
+    prev.classList.toggle('hidden', total <= 1);
+    next.classList.toggle('hidden', total <= 1);
   }
 
   /* ── UTILITIES ──────────────────────────────────── */
@@ -229,29 +474,24 @@ class BusinessRegistry {
     if (!b.socials) return '';
     const html = this._socialsHTML(b, 'card-social-link');
     if (!html) return '';
-    return `
-      <div class="card-socials">
-        ${html}
-      </div>`;
+    return `<div class="card-socials">${html}</div>`;
   }
 
   _socialsHTML(b, linkClass) {
     if (!b.socials) return '';
     const map = [
-      { key: 'facebook',  icon: 'fa-brands fa-facebook',   label: 'Facebook'  },
-      { key: 'instagram', icon: 'fa-brands fa-instagram',   label: 'Instagram' },
-      { key: 'tiktok',    icon: 'fa-brands fa-tiktok',      label: 'TikTok'    },
-      { key: 'twitter',   icon: 'fa-brands fa-x-twitter',   label: 'X/Twitter' },
-      { key: 'website',   icon: 'fa-solid fa-globe',        label: 'Website'   },
+      { key: 'facebook',  icon: 'fa-brands fa-facebook',  label: 'Facebook'  },
+      { key: 'instagram', icon: 'fa-brands fa-instagram',  label: 'Instagram' },
+      { key: 'tiktok',    icon: 'fa-brands fa-tiktok',     label: 'TikTok'    },
+      { key: 'twitter',   icon: 'fa-brands fa-x-twitter',  label: 'X/Twitter' },
+      { key: 'website',   icon: 'fa-solid fa-globe',       label: 'Website'   },
     ];
     return map
       .filter(({ key }) => b.socials[key] && b.socials[key].trim() !== '')
       .map(({ key, icon, label }) =>
         `<a href="${this._esc(b.socials[key])}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="${linkClass}"
-            title="${label}"
+            target="_blank" rel="noopener noreferrer"
+            class="${linkClass}" title="${label}"
             onclick="event.stopPropagation()">
            <i class="${icon}"></i>
            <span class="social-label">${label}</span>

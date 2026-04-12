@@ -52,6 +52,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+   coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -79,12 +84,17 @@ const BUSINESSES = [
     logo:           "logo/bite_me_baby.jpg",
     dateRegistered: "April 7, 2026",
     socials: {
-      facebook:  "",
-      instagram: "",
+      facebook:  "https://www.facebook.com/share/1G9gCkmAde/",
+      instagram: "https://www.instagram.com/bitemebaby143?igsh=Y3k1aHJhMDA0eDYw",
       tiktok:    "",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -109,12 +119,17 @@ const BUSINESSES = [
     logo:           "logo/part_b_friends.jpg",
     dateRegistered: "April 8, 2026",
     socials: {
-      facebook:  "",
+      facebook:  "https://www.facebook.com/profile.php?id=61577457191424",
       instagram: "",
       tiktok:    "",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -142,11 +157,16 @@ const BUSINESSES = [
     dateRegistered: "April 8, 2026",
     socials: {
       facebook:  "",
-      instagram: "",
+      instagram: "https://www.instagram.com/cookinamida?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       tiktok:    "",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -175,6 +195,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -203,11 +228,16 @@ const BUSINESSES = [
     dateRegistered: "April 8, 2026",
     socials: {
       facebook:  "https://www.facebook.com/share/1CYaYDX4mL/?mibextid=wwXIfr",
-      instagram: "",
+      instagram: "https://www.instagram.com/didto_sakuan/",
       tiktok:    "https://www.tiktok.com/@kaonsakuan?_r=1&_d=f1mb0lj0me031d&sec_uid=MS4wLjABAAAAeZLH43J4livB0JyzkFpe98AbIytbDQYxziCWzntwiZaWsX0Q3js2_ZhIKRfCnhhc&share_author_id=7278676751081194502&sharer_language=en&source=h5_t&u_code=ea33lbd6a3f911&item_author_type=1&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=88F114F0-E844-43B9-9FB7-B503CA52AD37&user_id=7278676751081194502&sec_user_id=MS4wLjABAAAAeZLH43J4livB0JyzkFpe98AbIytbDQYxziCWzntwiZaWsX0Q3js2_ZhIKRfCnhhc&social_share_type=4&ug_btm=b8727,b0&utm_campaign=client_share&share_app_id=1180",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -240,6 +270,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -266,12 +301,17 @@ const BUSINESSES = [
     logo:           "logo/exue.jpg",
     dateRegistered: "April 8, 2026",
     socials: {
-      facebook:  "",
-      instagram: "",
+      facebook:  "https://www.facebook.com/share/1QnDF2eYSy/",
+      instagram: "https://www.instagram.com/exue_official?igsh=cjh4ems1MHBxMmtm",
       tiktok:    "",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -302,6 +342,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -328,12 +373,17 @@ const BUSINESSES = [
     logo:           "logo/dtf.png",
     dateRegistered: "April 8, 2026",
     socials: {
-      facebook:  "",
+      facebook:  "https://www.facebook.com/profile.php?id=61577116842401",
       instagram: "",
       tiktok:    "",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -367,6 +417,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -400,6 +455,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -432,6 +492,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -465,6 +530,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -491,12 +561,17 @@ const BUSINESSES = [
     logo:           "logo/gwenpanada.jpg",
     dateRegistered: "April 8, 2026",
     socials: {
-      facebook:  "",
-      instagram: "",
+      facebook:  "https://www.facebook.com/profile.php?id=61577406097694",
+      instagram: "https://www.instagram.com/gwenpanada/",
       tiktok:    "",
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
 
   {
@@ -530,6 +605,11 @@ const BUSINESSES = [
       twitter:   "",
       website:   "",
     },
+    coverPhotos: [
+      "",
+      "",
+      "",
+    ],
   },
   {
   permitNo:       "BRLO-202604-93108",
@@ -558,6 +638,11 @@ const BUSINESSES = [
     twitter:   "",
     website:   "",
   },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
 },
 
 {
@@ -591,6 +676,11 @@ const BUSINESSES = [
     twitter:   "",
     website:   "",
   },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
 },
 
 {
@@ -620,6 +710,11 @@ const BUSINESSES = [
     twitter:   "",
     website:   "",
   },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
 },
 
 {
@@ -652,6 +747,11 @@ const BUSINESSES = [
     twitter:   "",
     website:   "",
   },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
 },
 
   // {
@@ -678,6 +778,7 @@ const BUSINESSES = [
   //   logo:           "logo/hakuriko.png",
   //   dateRegistered: "April 8, 2026",
   //   socials: { facebook: "", instagram: "", tiktok: "", twitter: "", website: "" },
+  
   // },
 
   // {
