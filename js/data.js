@@ -53,7 +53,7 @@ const BUSINESSES = [
       website:   "",
     },
    coverPhotos: [
-      "",
+      "cover/happytummy_1.jpg",
       "",
       "",
     ],
@@ -126,9 +126,9 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/partb_1.jpg",
+      "cover/partb_2.jpg",
+      "cover/partb_3.jpg",
     ],
   },
 
@@ -163,9 +163,9 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/cookinamida_1.jpg",
+      "cover/cookinamida_2.jpg",
+      "cover/cookinamida_3.jpg",
     ],
   },
 
@@ -234,9 +234,9 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/sakuan_1.jpg",
+      "cover/sakuan_2.jpg",
+      "cover/sakuan_3.jpg",
     ],
   },
 
@@ -271,7 +271,7 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
+      "cover/nameat_1.jpg",
       "",
       "",
     ],
@@ -418,8 +418,8 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
+      "cover/67_1.jpg",
+      "cover/67_2.jpg",
       "",
     ],
   },
@@ -456,8 +456,8 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
+      "cover/puds_1.jpg",
+      "cover/puds_2.jpg",
       "",
     ],
   },
@@ -493,9 +493,9 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/chimu_1.jpg",
+      "cover/chimu_2.jpg",
+      "cover/chimu_3.jpg",
     ],
   },
 
@@ -531,9 +531,9 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/fruititos_1.jpg",
+      "cover/fruititos_2.jpg",
+      "cover/fruititos_3.jpg",
     ],
   },
 
@@ -568,9 +568,9 @@ const BUSINESSES = [
       website:   "",
     },
     coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/gwen_1.jpg",
+      "cover/gwen_2.jpg",
+      "cover/gwen_3.jpg",
     ],
   },
 
@@ -711,7 +711,7 @@ const BUSINESSES = [
     website:   "",
   },
   coverPhotos: [
-      "",
+      "cover/raize_1.jpg",
       "",
       "",
     ],
@@ -748,9 +748,9 @@ const BUSINESSES = [
     website:   "",
   },
   coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/pica_1.jpg",
+      "cover/pica_2.jpg",
+      "cover/pica_3.jpg",
     ],
 },
 
@@ -784,9 +784,9 @@ const BUSINESSES = [
     website:   "",
   },
   coverPhotos: [
-      "",
-      "",
-      "",
+      "cover/sigma_1.jpg",
+      "cover/sigma_2.jpg",
+      "cover/sigma_3.jpg",
     ],
 },
 
