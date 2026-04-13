@@ -754,6 +754,42 @@ const BUSINESSES = [
     ],
 },
 
+{
+  permitNo:       "BRLO-202604-91110",
+  businessName:   "Assorted Sigma",
+  catchphrase:    "Sigma energy, assorted snacks. -Take the Leap.",
+  nature:         "Food Cart / Street Food Stall",
+  section:        "Aristotle",
+  address:        "CMULHS Grounds",
+  owner:          "Alyka Angela A. Abarquez",
+  members: [
+    { name: "Abarquez, Alyka Angela A.",    isLeader: false },
+    { name: "Villareal, Stephanie Nicole",  isLeader: false },
+    { name: "Villarta, Lennarth Kyle O.",   isLeader: false },
+    { name: "Jeong, Mi Jin M.",             isLeader: false },
+    { name: "Oracion, Phoebe Gail A.",      isLeader: false },
+    { name: "Alburo, Mark Jude C.",         isLeader: false },
+    { name: "Gallardo, Kristian R.",        isLeader: false },
+  ],
+  email:          "assortedsigma@gmail.com",
+  payment:        "Cash",
+  products:       "Savory Snacks: Loaded Chips, Gimbap, Shawarma/Java Rice. Desserts: Cookie Dip, S'mores Cookie, Magnum-inspired Ice Candy. Juices: Watermelon Refresher, Buko Juice. Arts & Crafts: Pins, Crocheted Items",
+  logo:           "logo/assorted_sigma.jpg",
+  dateRegistered: "April 12, 2026",
+   socials: {
+    facebook:  "https://www.facebook.com/profile.php?id=61574367689615",
+    instagram: "https://www.instagram.com/assorted.sigma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    tiktok:    "",
+    twitter:   "",
+    website:   "",
+  },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
+},
+
   // {
   //   permitNo:       "BRLO-202604-78951",
   //   businessName:   "Hakuriko",
