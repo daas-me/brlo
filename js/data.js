@@ -812,7 +812,7 @@ const BUSINESSES = [
   payment:        "Cash, GCash",
   products:       "Chao Fan, Turron, Tornado Potato, Hotdogs, Fruit Shake, Iced Tea",
   logo:           "logo/hukariko.png",
-  dateRegistered: "April 7, 2026",
+  dateRegistered: "April 14, 2026",
 
   socials: {
     facebook:  " https://www.facebook.com/share/1Ghj7ff9AN/?mibextid=wwXIfr",
