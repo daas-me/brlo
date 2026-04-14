@@ -815,7 +815,7 @@ const BUSINESSES = [
   dateRegistered: "April 14, 2026",
 
   socials: {
-    facebook:  " https://www.facebook.com/share/1Ghj7ff9AN/?mibextid=wwXIfr",
+    facebook:  "https://www.facebook.com/share/1Ghj7ff9AN/?mibextid=wwXIfr",
     instagram: "",
     tiktok:    "",
     twitter:   "",
@@ -827,6 +827,44 @@ const BUSINESSES = [
       "",
     ],
 },
+
+{
+    permitNo:       "BRLO-202604-63093",
+    businessName:   "OnlyFrans",
+    catchphrase:    "Grabe kalami dle maka dle",
+    nature:         "Restaurant / Eatery / Canteen",
+    section:        "Galileo",
+    address:        "CMULHS",
+    owner:          "Eugene Ivan Roy A. Relado",
+    members: [
+      { name: "Relado, Eugene Ivan Roy A.",   isLeader: false },
+      { name: "Lamique, Janchris Louie P.",   isLeader: false },
+      { name: "Limocon, Francis Ryan B.",     isLeader: false },
+      { name: "Ortega, Xerxes Hamz C.",       isLeader: false },
+      { name: "Paulin, Jarred B.",            isLeader: false },
+      { name: "Salingay, Jose Andress O.",    isLeader: false },
+      { name: "Urbiztondo, Sedruol D.",       isLeader: false },
+      { name: "Yuson, Keith Frederick M.",    isLeader: false },
+    ],
+    email:          "janchrislamique5@gmail.com",
+    payment:        "Cash, GCash",
+    products:       "Kikiam, Kwek-Kwek, Tempura, Lemonade, Buko Juice, Frans Fries, Siomai",
+    logo:           "logo/onlyfrans.jpg",
+    dateRegistered: "April 15, 2026",
+
+    socials: {
+    facebook:  "",
+    instagram: "https://www.instagram.com/onlyf_ransssss/",
+    tiktok:    "",
+    twitter:   "",
+    website:   "",
+  },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
+  },
 
   // ── ADD NEW BUSINESSES BELOW ──────────────────────
   // {
