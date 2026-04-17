@@ -866,6 +866,44 @@ const BUSINESSES = [
     ],
   },
 
+  {
+    permitNo:       "BRLO-202604-08331",
+    businessName:   "Tilaw-Tilaw Ra",
+    catchphrase:    "Take the risk to taste the best",
+    nature:         "Food Cart / Street Food Stall/ Food Service & Retail",
+    section:        "Galileo",
+    address:        "Sayre Highway, University Town, Musuan, Maramag, Bukidnon, Philippines",
+    owner:          "Natashya Althea S. Mañago",
+    members: [
+      { name: "Mañago, Natashya Althea S.",      isLeader: false },
+      { name: "Alfarero, Glaiza O.",             isLeader: false },
+      { name: "Balaba, Allyssandra Montyl D.",   isLeader: false },
+      { name: "Caballero, Verrah Janes A.",      isLeader: false },
+      { name: "Jumawan, Kyziah Thea Jezryl G.",  isLeader: false },
+      { name: "Natinga, Samantha Nicole B.",     isLeader: false },
+      { name: "Simpron, Emman Paolo M.",         isLeader: false },
+      { name: "Zubiri, Zaira L.",               isLeader: false },
+    ],
+    email:          "theanatty@gmail.com",
+    payment:        "Cash, GCash",
+    products:       "Mushroom Pepper Steak, Buffalo Wings, Kimchi Fried Rice, Peach-Mango Pie, Chi-Chee",
+    logo:           "logo/tilawtilaw.jpeg",
+    dateRegistered: "April 17, 2026",
+
+    socials: {
+    facebook:  "",
+    instagram: "https://www.instagram.com/tilaw2ra?igsh=MTFjNnVoNDVuMnV3OQ%3D%3D&utm_source=qr",
+    tiktok:    "",
+    twitter:   "",
+    website:   "",
+  },
+  coverPhotos: [
+      "",
+      "",
+      "",
+    ],
+  },
+
   // ── ADD NEW BUSINESSES BELOW ──────────────────────
   // {
   //   permitNo:       "BRLO-202604-XXXXX",
