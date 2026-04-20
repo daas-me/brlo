@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon | BRLO 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="coming-soon.css">
+  <link rel="stylesheet" href="css/hamburger.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+</head>
+<body class="page-awards-coming">
+
+  <!-- ═══════ NAVBAR ═══════ -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="logo/brlo-logo.png" alt="BRLO" class="nav-logo" onerror="this.style.display='none'">
+      <div class="nav-brand-text">
+        <span class="nav-title-full">Business Registration &amp; Licensing Office</span>
+        <span class="nav-title-short">BRLO</span>
+        <span class="nav-subtitle">Business Registry 2026</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html"    class="nav-link-home">Home</a></li>
+      <li><a href="registry.html" class="nav-link-registry">Registered Businesses</a></li>
+      <li><a href="coming-soon.html"   class="nav-link-awards">Coming Soon</a></li>
+      <li><a href="about.html"    class="nav-link-about">About</a></li>
+    </ul>
+
+    <img src="logo/entrep-logo.png" alt="Entrep" class="nav-right-logo" onerror="this.style.display='none'">
+  </nav>
+
+  <!-- ═══════ ANIMATED BACKGROUND ═══════ -->
+  <div class="coming-soon-bg">
+    <div class="coming-soon-geo coming-soon-geo-1"></div>
+    <div class="coming-soon-geo coming-soon-geo-2"></div>
+    <div class="coming-soon-geo coming-soon-geo-3"></div>
+  </div>
+
+  <!-- ═══════ COMING SOON CONTENT ═══════ -->
+  <div class="coming-soon-container">
+    <!-- Icon -->
+    <div class="coming-soon-icon">
+      <i class="fa-solid fa-fire"></i>
+    </div>
+
+    <!-- Title -->
+    <h1 class="coming-soon-title">Coming Soon</h1>
+
+    <!-- Description -->
+    <p class="coming-soon-description">
+      Something exciting is on the way.<br>
+      <strong>Check back soon.</strong>
+    </p>
+
+    <!-- Highlights - Hidden for mystery teaser -->
+    <div class="coming-soon-highlights" style="display: none;">
+      <div class="highlight-item">
+        <i class="fa-solid fa-medal"></i>
+        <div class="highlight-item-title">Excellence Awards</div>
+        <div class="highlight-item-text">Recognizing top performers across all categories</div>
+      </div>
+      <div class="highlight-item">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="highlight-item-title">Innovation Showcase</div>
+        <div class="highlight-item-text">Celebrating creative business ideas and execution</div>
+      </div>
+      <div class="highlight-item">
+        <i class="fa-solid fa-handshake"></i>
+        <div class="highlight-item-title">Leadership Heroes</div>
+        <div class="highlight-item-text">Honoring outstanding entrepreneurial spirit</div>
+      </div>
+      <div class="highlight-item">
+        <i class="fa-solid fa-star"></i>
+        <div class="highlight-item-title">Community Impact</div>
+        <div class="highlight-item-text">Businesses that make a difference</div>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="coming-soon-cta">
+      <a href="index.html" class="notify-btn">
+        <i class="fa-solid fa-home"></i> Back to Home
+      </a>
+      <a href="registry.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Explore Businesses
+      </a>
+    </div>
+
+    <!-- Countdown - Hidden for mystery teaser -->
+    <div class="coming-soon-countdown" style="display: none;">
+      <div class="countdown-label">🎉 Get Ready For</div>
+      <div class="countdown-timer" id="countdown-timer">
+        <!-- Dynamically filled by JS -->
+      </div>
+    </div>
+
+    <!-- Footer Note -->
+    <div class="coming-soon-footer">
+      <strong>Stay tuned.</strong> Something special is in the works.
+    </div>
+  </div>
+
+  <script>
+    // Countdown Timer Logic
+    function updateCountdown() {
+      // Set your launch date here (e.g., May 1, 2026)
+      const launchDate = new Date('2026-05-01').getTime();
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown-timer').innerHTML = 
+          '<div style="font-size: 1.2rem; color: #6B3FC0; font-weight: 600;"><i class="fa-solid fa-check-circle"></i> Now Live!</div>';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-timer').innerHTML = `
+        <div class="countdown-item">
+          <div class="countdown-number">${String(days).padStart(2, '0')}</div>
+          <div class="countdown-label-item">Days</div>
+        </div>
+        <div style="font-size: 2rem; color: #ccc; font-weight: 300;">:</div>
+        <div class="countdown-item">
+          <div class="countdown-number">${String(hours).padStart(2, '0')}</div>
+          <div class="countdown-label-item">Hours</div>
+        </div>
+        <div style="font-size: 2rem; color: #ccc; font-weight: 300;">:</div>
+        <div class="countdown-item">
+          <div class="countdown-number">${String(minutes).padStart(2, '0')}</div>
+          <div class="countdown-label-item">Minutes</div>
+        </div>
+      `;
+    }
+
+    // Update countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
