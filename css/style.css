@@ -101,7 +101,8 @@ nav {
 }
 .page-home     .nav-link-home,
 .page-registry .nav-link-registry,
-.page-about    .nav-link-about {
+.page-about    .nav-link-about,
+.page-awards   .nav-link-awards {
   color: #fff;
   border-bottom: 3px solid var(--violet);
   padding-bottom: 4px;

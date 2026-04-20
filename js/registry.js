@@ -204,7 +204,9 @@ class BusinessRegistry {
             <div class="biz-logo-wrap">
               ${this._logoTag(b, 'biz-logo-placeholder')}
             </div>
-            <span class="badge-active">Active</span>
+            <div class="card-badges">
+              <span class="badge-active">Active</span>
+            </div>
           </div>
 
           <div class="biz-name">${this._esc(b.businessName)}</div>
@@ -213,7 +215,21 @@ class BusinessRegistry {
             : ''}
           <div class="biz-nature"><i class="fa-solid fa-shapes"></i> ${this._esc(b.nature)}</div>
 
-          <hr class="card-divider">
+          ${b.awards && b.awards.length > 0 ? `
+            <div class="card-awards-section">
+              <div class="card-awards-title">Awards Earned</div>
+              <div class="card-awards-list">
+                ${b.awards.map(award => {
+                  const awardsByCategory = this._getAwardCategoryMap();
+                  const categoryData = Object.values(awardsByCategory).find(cat => cat.awards.includes(award)) || {};
+                  const badgeHtml = this._renderIconHtml(categoryData.icon || 'fa-trophy');
+                  return `<div class="card-award-badge" data-award="${this._esc(award)}">${badgeHtml}</div>`;
+                }).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <div class="card-divider"></div>
 
           <div class="card-meta">
             <div class="meta-row">
@@ -293,8 +309,11 @@ class BusinessRegistry {
     // Badges
     const badges = document.getElementById('modal-badges');
     if (badges) {
-      badges.innerHTML = [b.section, b.nature, 'Active 2026']
-        .map(t => `<span class="modal-badge">${this._esc(t)}</span>`).join('');
+      const badgeList = [b.section, b.nature, 'Active 2026'];
+      if (b.awards && b.awards.length > 0) {
+        badgeList.push(`Awards (${b.awards.length})`);
+      }
+      badges.innerHTML = badgeList.map(t => `<span class="modal-badge">${this._esc(t)}</span>`).join('');
     }
 
     // Members
@@ -313,6 +332,68 @@ class BusinessRegistry {
       const html = this._socialsHTML(b, 'modal-social-link');
       socialsEl.innerHTML = html || '<span style="font-size:13px;color:var(--muted);">No online profiles listed yet.</span>';
     }
+
+    // Awards
+    const awardsSection = document.getElementById('m-awards-section');
+    const awardsEl = document.getElementById('m-awards');
+    if (awardsEl && b.awards && b.awards.length > 0) {
+      if (awardsSection) awardsSection.style.display = 'block';
+      const awardsByCategory = this._getAwardCategoryMap();
+      
+      awardsEl.innerHTML = b.awards.map(award => {
+        const categoryData = Object.values(awardsByCategory).find(cat => cat.awards.includes(award)) || {};
+        const badgeHtml = this._renderIconHtml(categoryData.icon || 'fa-trophy');
+        
+        return `
+          <div class="modal-award-item">
+            <div class="modal-award-badge">${badgeHtml}</div>
+            <div class="modal-award-name">${this._esc(award)}</div>
+          </div>`;
+      }).join('');
+    } else {
+      if (awardsSection) awardsSection.style.display = 'none';
+      if (awardsEl) awardsEl.innerHTML = '';
+    }
+  }
+
+  _getAwardCategoryMap() {
+    return {
+      "Core Awards": {
+        description: "Best Overall – Top Ranking Businesses",
+        icon: "fa-crown",
+        awards: ["Best Overall Business", "Top 3 Outstanding Businesses", "Most Successful Business"]
+      },
+      "Sales & Performance": {
+        description: "Sales growth and performance recognition",
+        icon: "fa-chart-line",
+        awards: ["Top Grossing Business", "Best Sales Performance", "Most In-Demand Business", "Growth Champion"]
+      },
+      "Branding & Creativity": {
+        description: "Creative excellence and brand innovation",
+        icon: "fa-palette",
+        awards: ["Best Business Concept", "Most Creative Business", "Best Branding", "Most Unique Product"]
+      },
+      "Product & Food Quality": {
+        description: "Excellence in products and services",
+        icon: "fa-star",
+        awards: ["Best Food Product", "Best Beverage", "Best Menu Variety", "Customer Favorite", "Excellence in Craftsmanship"]
+      },
+      "Professionalism & Operations": {
+        description: "Operations, service, and presentation excellence",
+        icon: "fa-handshake",
+        awards: ["Most Professional Team", "Best Customer Service Excellence", "Best Booth Setup", "Cleanest Booth"]
+      },
+      "Innovation & Strategy": {
+        description: "Business innovation and strategic thinking",
+        icon: "fa-lightbulb",
+        awards: ["Most Innovative Business", "Best Marketing Strategy", "Most Sustainable Business", "Innovation Award"]
+      },
+      "Leadership & Entrepreneurship": {
+        description: "Outstanding leadership and entrepreneurial spirit",
+        icon: "fa-trophy",
+        awards: ["Top Entrepreneur", "Best Startup", "Most Energetic Sellers", "Best Team Spirit"]
+      }
+    };
   }
 
   /* ── CAROUSEL ───────────────────────────────────── */
@@ -501,6 +582,15 @@ class BusinessRegistry {
 
   _initials(name) {
     return name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  }
+
+  _renderIconHtml(iconValue) {
+    if (!iconValue) return '';
+    if (iconValue.startsWith('fa-')) {
+      return `<i class="fa-solid ${iconValue}"></i>`;
+    } else {
+      return `<img src="${iconValue}" alt="badge" style="width: 100%; height: 100%; object-fit: contain;">`;
+    }
   }
 
   _esc(str) {

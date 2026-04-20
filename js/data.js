@@ -19,6 +19,7 @@
      products       — Products or services offered
      logo           — Path to logo image, e.g. "logos/mylogo.png" (leave "" if none)
      dateRegistered — Date approved and registered
+     awards         — Array of award names (optional)
      socials        — Object with optional keys: facebook, instagram, tiktok, twitter, website
    ═══════════════════════════════════════════════════ */
 
@@ -45,6 +46,7 @@ const BUSINESSES = [
     products:       "Food options: Mac n Cheese, Chicken Alfredo, and Lasagna",
     logo:           "logo/happy_tummy.jpg",
     dateRegistered: "April 7, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "https://www.instagram.com/happytummyyyy_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
@@ -83,6 +85,7 @@ const BUSINESSES = [
     products:       "Savory:The Messy Hookup (Nachos), Put a Ring on It (Onion Rings) | Sweets: Sugar Daddy Rods (Churros), Creamy Finish (Xiao Long Bao), For E Play (Ube Ricecake Turon) | Beverages: Buko PanDAMN (Buko Pandan), Chill Pill (Iced Tea)",
     logo:           "logo/bite_me_baby.jpg",
     dateRegistered: "April 7, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/share/1G9gCkmAde/",
       instagram: "https://www.instagram.com/bitemebaby143?igsh=Y3k1aHJhMDA0eDYw",
@@ -118,6 +121,7 @@ const BUSINESSES = [
     products:       "Blue Lemonade, Fruit Soda (Strawberry, Blueberry, Green Apple), Egg Sandwich, Fries, Nachos",
     logo:           "logo/part_b_friends.jpg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/profile.php?id=61577457191424",
       instagram: "",
@@ -155,6 +159,7 @@ const BUSINESSES = [
     products:       "Gimbap, Mochi, Popping Soda, Mango Bites, Rice Cake, Fish Cake, Quesadilla, Overload Fries",
     logo:           "logo/cookinamida.jpeg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "https://www.instagram.com/cookinamida?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
@@ -188,6 +193,7 @@ const BUSINESSES = [
     products:       "Ice Cream, Pastries",
     logo:           "logo/khave.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "",
@@ -226,6 +232,7 @@ const BUSINESSES = [
     products:       "Fries with Blue Lemonade, Ala Buldak, Cinnamon Bites with Ice Cream, Pancone, Barbetlog (Rice or Java Rice with Chicken or Pork Barbecue with Egg), Mango Graham Tapioca, Ginaggang (Grilled Banana)",
     logo:           "logo/sa_kuan.jpeg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/share/1CYaYDX4mL/?mibextid=wwXIfr",
       instagram: "https://www.instagram.com/didto_sakuan/",
@@ -263,6 +270,7 @@ const BUSINESSES = [
     products:       "Rice Meals, Fries, Nachos, Quesadillas, Milo Dinosaur, Matcha, Blue Lemonade, Cookies",
     logo:           "logo/nameat.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "",
@@ -300,6 +308,7 @@ const BUSINESSES = [
     products:       "Bento Box Lunch, Sushi, Empanada (Ham and Cheese), Iced Tea, Fruit Soda (Blueberry, Green Apple), Ice Cold Water, Iced Candy, Coffee Jelly",
     logo:           "logo/exue.jpg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/share/1QnDF2eYSy/",
       instagram: "https://www.instagram.com/exue_official?igsh=cjh4ems1MHBxMmtm",
@@ -335,6 +344,7 @@ const BUSINESSES = [
     products:       "Rice Bowls, Japanese-inspired Snacks, Sticky Milk",
     logo:           "logo/pal_chiks.jpeg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "https://www.instagram.com/pal.chiks?igsh=MXBuZDRnZmZmeDlnMA==",
@@ -372,6 +382,7 @@ const BUSINESSES = [
     products:       "Omecanton, Mojo Fries, Spam Musubi, Japanese Sando, Coffee Jelly, Buko Juice",
     logo:           "logo/dtf.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/profile.php?id=61577116842401",
       instagram: "",
@@ -410,6 +421,7 @@ const BUSINESSES = [
     products:       "Food: Snow Cheese, Cheddar Cheese, Honey Glaze, Yangnyeom. Drinks: Blue Lemonade. Desserts: Muffins, Munchkins",
     logo:           "logo/chick_cheven.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "https://www.instagram.com/chickcheven_?igsh=MmVzaHFwamg2a2dm",
@@ -448,6 +460,7 @@ const BUSINESSES = [
     products:       "Tokneneng, Kwek-Kwek, Tempura, Squid Ball, Fishball, Chicken Biryani, Ice Candy, Buko Juice",
     logo:           "logo/puds_ni_pads.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "",
       instagram: "",
@@ -485,6 +498,7 @@ const BUSINESSES = [
     products:       "Bento Meals: Pork Katsu, Chicken Katsu, Omurice (Sauce: Pink Sauce, Katsu Sauce, Ketchup) | Ice Cones | Potato Mochi | Live Drawing Portrait | Chibi/Anime Art Commissions (Traditional and Digital) | Art Prints (custom) | Pins (custom)",
     logo:           "logo/chimu_bento.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/profile.php?id=61588529277891",
       instagram: "",
@@ -523,6 +537,7 @@ const BUSINESSES = [
     products:       "Fruit Cups, Fruit Salad, Fruit Juice, Calamansinade, Mango Float",
     logo:           "logo/fruititos.jpg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/share/1HNVMdipRn/",
       instagram: "https://www.instagram.com/fruitit0s?igsh=MWVocWg4aG03N2xpcg==",
@@ -560,6 +575,7 @@ const BUSINESSES = [
     products:       "Illorkish Gwenpanada, Choconet, Dumpching, Xiang Dwich, Green Sodondon, Pink Sodhar",
     logo:           "logo/gwenpanada.jpg",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/profile.php?id=61577406097694",
       instagram: "https://www.instagram.com/gwenpanada/",
@@ -598,6 +614,7 @@ const BUSINESSES = [
     products:       "Rice Meals: Chicken Teriyaki, Chicken Ala King, Chicken Katsu, Beef Shawarma Rice | Fruit Sodas: Watermelon, Pineapple, Blueberry, Grape, Green Apple | Pastries: S'mores Cookies, Matcha Cookies, Red Velvet Cookies, Classic Chocolate-chip Cookies, Oreo Cream-filled Pancakes, Mango Graham Cream-filled Pancakes, Cake Slices",
     logo:           "logo/souffelaire.png",
     dateRegistered: "April 8, 2026",
+    awards:         [],
     socials: {
       facebook:  "https://www.facebook.com/share/1ccXyPoksQ/",
       instagram: "https://www.instagram.com/souffelaire?igsh=bGViZ21tNTZkOXdn",
@@ -631,6 +648,7 @@ const BUSINESSES = [
   products:       "Fruit Soda — 3 flavors: Blueberry, Blue Lemonade, Green Apple",
   logo:           "logo/munchies.webp",
   dateRegistered: "April 9, 2026",
+  awards:         [],
   socials: {
     facebook:  "",
     instagram: "",
@@ -669,6 +687,7 @@ const BUSINESSES = [
   products:       "Snacks: Waffles, Churros, Fried Oreos | Drinks: Fruit Soda, Lemonade | Rice Meals: Shrimp Tempura, Onigiri, Cordon Bleu Roll",
   logo:           "logo/mike_n_match.jpeg",
   dateRegistered: "April 9, 2026",
+  awards:         [],
   socials: {
     facebook:  "https://www.facebook.com/share/1CjuCxZz5f/?mibextid=wwXIfr",
     instagram: "https://www.instagram.com/mike_and_match?igsh=aDlldTE5MDRyNm53",
@@ -703,6 +722,7 @@ const BUSINESSES = [
   products:       "Rice Bowls: Honey Garlic Chicken, Chao Fan, Corned Beef Pepper Lunch | Fruit Sodas",
   logo:           "logo/raize_mael.jpeg",
   dateRegistered: "April 9, 2026",
+  awards:         [],
   socials: {
     facebook:  "",
     instagram: "",
@@ -740,6 +760,7 @@ const BUSINESSES = [
   products:       "Spicy Noodle Soup, Lasagna Soup, Banana Pudding, Arancini Balls, Burntbust Cheesecake, Crepe Cakes, Egg Pops, Banana Cake, Cucumber Lemonade",
   logo:           "logo/pica_picka.jpeg",
   dateRegistered: "April 9, 2026",
+  awards:         [],
   socials: {
     facebook:  "",
     instagram: "",
@@ -776,7 +797,8 @@ const BUSINESSES = [
   products:       "Savory Snacks: Loaded Chips, Gimbap, Shawarma/Java Rice. Desserts: Cookie Dip, S'mores Cookie, Magnum-inspired Ice Candy. Juices: Watermelon Refresher, Buko Juice. Arts & Crafts: Pins, Crocheted Items",
   logo:           "logo/assorted_sigma.jpg",
   dateRegistered: "April 13, 2026",
-   socials: {
+  awards:         [],
+  socials: {
     facebook:  "https://www.facebook.com/profile.php?id=61574367689615",
     instagram: "https://www.instagram.com/assorted.sigma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     tiktok:    "",
@@ -813,7 +835,7 @@ const BUSINESSES = [
   products:       "Chao Fan, Turron, Tornado Potato, Hotdogs, Fruit Shake, Iced Tea",
   logo:           "logo/hukariko.png",
   dateRegistered: "April 14, 2026",
-
+  awards:         [],
   socials: {
     facebook:  "https://www.facebook.com/share/1Ghj7ff9AN/?mibextid=wwXIfr",
     instagram: "",
@@ -851,7 +873,7 @@ const BUSINESSES = [
     products:       "Kikiam, Kwek-Kwek, Tempura, Lemonade, Buko Juice, Frans Fries, Siomai",
     logo:           "logo/onlyfrans.jpg",
     dateRegistered: "April 15, 2026",
-
+    awards:         [],
     socials: {
     facebook:  "",
     instagram: "https://www.instagram.com/onlyf_ransssss/",
@@ -889,7 +911,7 @@ const BUSINESSES = [
     products:       "Mushroom Pepper Steak, Buffalo Wings, Kimchi Fried Rice, Peach-Mango Pie, Chi-Chee",
     logo:           "logo/tilawtilaw.jpeg",
     dateRegistered: "April 17, 2026",
-
+    awards:         [],
     socials: {
     facebook:  "",
     instagram: "https://www.instagram.com/tilaw2ra?igsh=MTFjNnVoNDVuMnV3OQ%3D%3D&utm_source=qr",
